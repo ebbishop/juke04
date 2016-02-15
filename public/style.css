@@ -49,3 +49,9 @@ footer {
 
 .album img {
   height: 300px; }
+
+.error{
+  /*background-color: rgba(255,0,0,0.4);*/
+  border-color: rgba(255,0,0,0.4);
+  border-width: 2px;
+}
