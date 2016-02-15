@@ -51,7 +51,7 @@ footer {
   height: 300px; }
 
 .error{
-  /*background-color: rgba(255,0,0,0.4);*/
-  border-color: rgba(255,0,0,0.4);
-  border-width: 2px;
+  background-color: rgba(255,0,0,0.8);
+/*  border-color: #ff0000;
+  border-width: 2px;*/
 }
