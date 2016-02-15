@@ -2,9 +2,9 @@
   <h3>{{ playlist.name }}</h3>
   <form name="songForm">
     <label></label>
-    <select class="form-control" ng-model="songOptions" ng-options="oneSong as oneSong.name for oneSong in songs" ng-required='true'>
+    <select class="form-control" ng-model="chosenSong" ng-options="oneSong as oneSong.name for oneSong in songs" ng-required='true'>
     </select><br>
-    <button class="btn btn-success" ng-disabled="songForm.$invalid">Add Song</button>
+    <button ng-click="addSongToPlaylist(playlist, oneSong)" class="btn btn-success" ng-disabled="songForm.$invalid">Add Song</button>
   </form>
   <table class='table' ng-show="playlist.songs.length">
     <thead>

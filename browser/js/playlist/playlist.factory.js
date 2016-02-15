@@ -20,7 +20,6 @@ juke.factory('PlaylistFactory', function ($http, $log, SongFactory, $q) {
     return $q.all([$http.get(url), $http.get(url + '/songs')])
     .then(responses => responses.map(res => res.data))
     .then(results => {
-      console.log("results: ", results);
       var playlist = results[0];
       var songs = results[1].map(SongFactory.convert);
       playlist.songs = songs;
@@ -32,14 +31,15 @@ juke.factory('PlaylistFactory', function ($http, $log, SongFactory, $q) {
   PlaylistFactory.create = function (data) {
     return $http.post('/api/playlists', data)
     .then(function (newPlaylist) {
-      $log.log("new playlist obj: ", newPlaylist);
-      $log.log("new playlist data: ", newPlaylist.data);
-
       var playlist = newPlaylist.data;
       cachedPlaylists.push(playlist);
       return playlist;
     });
   };
 
+  PlaylistFactory.addSong = function(data){
+    var url = '/api/playlists/' + data.playlistId + '/songs';
+    return $http.post(url, data);
+  }
   return PlaylistFactory;
 })

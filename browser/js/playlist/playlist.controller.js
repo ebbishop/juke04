@@ -15,12 +15,24 @@ juke.controller('NewPlaylistCtrl', function($scope, $log, PlaylistFactory, $stat
       $state.go('onePlaylist', {playlistId: playlist._id});
     });
   }
+
 })
 
-juke.controller('OnePlaylistCtrl', function($scope, $log, PlaylistFactory, thePlaylist, allSongs){
+juke.controller('OnePlaylistCtrl', function($scope, $log, PlaylistFactory, SongFactory, thePlaylist, allSongs){
   console.log("Now loading the One Playlist Controller...");
   $scope.playlist = thePlaylist;
 
   $scope.songs = allSongs;
+
+  $scope.addSongToPlaylist = function(playlist){
+    console.log('playlist:', playlist);
+    console.log('adding:', $scope.chosenSong);
+    return PlaylistFactory.addSong({playlistId: playlist._id, song: $scope.chosenSong})
+    .then(function(song){
+      SongFactory.convert(song);
+      $scope.playlist.songs.push(song);
+      return song;
+    });
+  }
 
 })
