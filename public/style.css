@@ -16,7 +16,8 @@ sidebar {
   background: #303030;
   height: calc(100vh - 56px);
   width: inherit;
-  border-right: 2px solid #555; }
+  border-right: 2px solid #555;
+  overflow: scroll; }
   sidebar .logo {
     width: 100%;
     padding: 15px; }
@@ -51,7 +52,12 @@ footer {
   height: 300px; }
 
 .error{
-  background-color: rgba(255,0,0,0.8);
-/*  border-color: #ff0000;
-  border-width: 2px;*/
+/*  background-color: rgba(255,0,0,0.8);*/
+  border-color: #ff0000;
+  border-width: 2px;
+}
+
+.error:focus{
+  border-color: #ff0000;
+  border-width: 2px;
 }

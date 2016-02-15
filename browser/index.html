@@ -24,7 +24,6 @@
   </head>
   <body ng-app="juke">
     <div id="main" class="container-fluid">
-
       <div class="col-xs-2">
         <sidebar ng-controller="SidebarCtrl">
           <img src="juke.svg" class="logo">
@@ -42,7 +41,7 @@
           <section>
             <h4 class="text-muted">PLAYLISTS</h4>
             <p class="playlist-item" ng-repeat="playlist in playlists">
-              <a>{{ playlist.name }}</a>
+              <a ui-sref="onePlaylist({playlistId: playlist._id})">{{ playlist.name }}</a>
             </p>
             <p>
               <a class="btn btn-primary btn-block" ui-sref="newPlaylist"><span class="glyphicon glyphicon-plus"></span>PLAYLIST</a>

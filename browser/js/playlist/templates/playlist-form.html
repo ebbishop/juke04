@@ -1,12 +1,12 @@
 <div >
   <h3>Make a New Playlist</h3>
   <form name='newPlaylistForm' class='form-inline'>
-    <p ng-show="newPlaylistForm.newname.$invalid">Playlist names must be 16 characters or fewer!</p>
-    <p ng-show="newPlaylistForm.newname.$pristine">Please enter a playlist name:</p>
-    <input name="newname" ng-class="{'error': (newPlaylistForm.newname.$error.maxlength && newPlaylistForm.newname.$notEmpty)}" ng-model='newPlaylistName' class='form-control' ng-maxlength="16" ng-required='true'>
+    <p ng-show="newPlaylistForm.newname.$error.maxlength">Playlist names must be 16 characters or fewer!</p>
+    <p ng-show="newPlaylistForm.newname.$invalid">Please enter a playlist name:</p>
+    <input name="newname" ng-class="{'error': (newPlaylistForm.newname.$error.maxlength && newPlaylistForm.newname.$invalid)}" ng-model='newPlaylistName' class='form-control' ng-maxlength="16" ng-required='true'>
     <button ng-click='newPlaylistCreate()' class="btn btn-default" ng-disabled="newPlaylistForm.$invalid">Submit</button>
-    <p>{{newPlaylistForm.newname.$error}}</p>
-    <p>{{newPlaylistForm }}</p>
+<!--     <p>{{newPlaylistForm.newname.$error}}</p>
+    <pre>{{newPlaylistForm | json}}</pre> -->
 
   </form>
 </div>

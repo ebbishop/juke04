@@ -9,8 +9,3 @@ juke.controller('SidebarCtrl', function ($scope, PlaylistFactory) {
   });
 
 });
-
-    // resolve: {
-    //   allArtists: function (ArtistFactory) {
-    //     return ArtistFactory.fetchAll();
-    //   }
